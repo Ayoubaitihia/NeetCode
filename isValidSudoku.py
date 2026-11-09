@@ -1,61 +1,72 @@
-# class Solution:
-
-#     def isValidSudoku(self, board: List[List[str]]) -> bool:
-#         pass
-
 import math
 
-def remove_points(lst: list):
 
-    return [l for l in lst if l != '.']
+class Solution:
 
-def isDuplicated(lst):
+    def remove_points(self, lst: list):
 
-    return len(lst) != len(set(lst))
+        return [l for l in lst if l != '.']
 
-def inverseMatrix(lsts: list[list[str]]):
+    def isDuplicated(self, lst):
 
-    result = []
+        return len(lst) != len(set(lst))
 
-    for i in range(len(lsts)):
-        result.append([])
+    def inverseMatrix(self, lsts: list[list[str]]):
 
-    for i, lst in enumerate(lsts):
-        for j, l in enumerate(lst):
-            result[j].append(l)
+        result = []
+
+        for i in range(len(lsts)):
+            result.append([])
+
+        for i, lst in enumerate(lsts):
+            for j, l in enumerate(lst):
+                result[j].append(l)
+
+        return result
+
+    def isValidSudoku(self, board: list[list[str]]) -> bool:
+
+        for lst in board:
+            if self.isDuplicated(self.remove_points(lst)):
+                return False
+
+        inverted = self.inverseMatrix(board)
+
+        print(inverted)
+
+        for lst in inverted:
+            if self.isDuplicated(self.remove_points(lst)):
+                return False
+
+        return True
 
 
-    return result
 
-def sublsts(lsts: list[list[str]]):
+def sublist(lsts):
 
     lent = int(math.sqrt(len(lsts)))
 
-
-    result = []
-
-    for i in range(lent):
-        result.append([])
-
     for k in range(lent):
 
-        for i in range(lent):
-            for j in range
+        chunk = [[] for _ in range(lent)]
 
+        for i, l in enumerate(lsts[k:lent+k]):
+                chunk.append
 
 
 
 board = [
     ["1","2",".",".","3",".",".",".","."],
     ["4",".",".","5",".",".",".",".","."],
-    [".","9","8",".",".",".",".",".","3"],
+    [".","9","1",".",".",".",".",".","3"],
     ["5",".",".",".","6",".",".",".","4"],
     [".",".",".","8",".","3",".",".","5"],
     ["7",".",".",".","2",".",".",".","6"],
     [".",".",".",".",".",".","2",".","."],
     [".",".",".","4","1","9",".",".","8"],
-    [".",".",".",".","8",".",".","7","9"]
-]
+    [".",".",".",".","8",".",".","7","9"]]
 
 
-print(sublsts(board))
+sol = Solution()
+
+print(sol.isValidSudoku(board))
