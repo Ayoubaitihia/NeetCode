@@ -42,16 +42,16 @@ class Solution:
 
 
 
-def sublist(lsts):
+# def sublist(lsts):
 
-    lent = int(math.sqrt(len(lsts)))
+#     lent = int(math.sqrt(len(lsts)))
 
-    for k in range(lent):
+#     for k in range(lent):
 
-        chunk = [[] for _ in range(lent)]
+#         chunk = [[] for _ in range(lent)]
 
-        for i, l in enumerate(lsts[k:lent+k]):
-                chunk.append
+#         for i, l in enumerate(lsts[k:lent+k]):
+#                 chunk.append
 
 
 
