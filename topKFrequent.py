@@ -16,6 +16,8 @@ for num in nums:
 result = []
 
 
+
+
 # sor_hashmap = dict(sorted(hashMap.items(), key=lambda item: item[1], reverse=True))
 
 print(hashMap)
