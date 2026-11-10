@@ -1,7 +1,7 @@
 # class Solution:
 #     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-nums = [5, 2, 2, 5, 3, 3, 4]
+nums = [1, 1, 1, 2, 3, 3]
 k = 2
 
 hashMap = {}
@@ -15,9 +15,16 @@ for num in nums:
 
 result = []
 
-sor_hashmap = dict(sorted(hashMap.items(), key=lambda item: item[1]))
 
-print(sor_hashmap)
+# sor_hashmap = dict(sorted(hashMap.items(), key=lambda item: item[1], reverse=True))
+
+print(hashMap)
+
+# print(sor_hashmap)
+
+# result = list(sor_hashmap.keys())
+
+# print(result[:k])
 
         # for h in hashMap:
 
