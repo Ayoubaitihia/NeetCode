@@ -1,20 +1,23 @@
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+# class Solution:
+#     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-        hashMap = {}
+nums = [5, 2, 2, 5, 3, 3, 4]
+k = 2
 
-        for num in nums:
+hashMap = {}
 
-            if num in hashMap:
-                hashMap[num] += 1
-            else:
-                hashMap[num] = 1
+for num in nums:
 
-        result = []
+    if num in hashMap:
+        hashMap[num] += 1
+    else:
+        hashMap[num] = 1
 
-        sor_hashmap = dict(sorted(hashMap.items(), key=lambda item: item[1]))
+result = []
 
-        print(sor_hashmap)
+sor_hashmap = dict(sorted(hashMap.items(), key=lambda item: item[1]))
+
+print(sor_hashmap)
 
         # for h in hashMap:
 
@@ -24,4 +27,4 @@ class Solution:
         # return result
 
 
-print(result)
+# print(result)
