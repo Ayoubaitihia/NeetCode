@@ -2,18 +2,18 @@
 
 def encode(strs: list[str]) -> str:
     if not strs:
-        return ""
+        return "_"
     return "_".join(strs)
 
 
 def decode(s: str) -> list[str]:
-    if not s:
-        return []
+    if s == "_":
+        return [""]
 
     return s.split("_")
 
 
-strs = []
+strs = ["", ""]
 
 encoded_str = encode(strs)
 
