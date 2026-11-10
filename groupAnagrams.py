@@ -2,6 +2,9 @@
 class Solution:
 
     def isAnagrams(self, s: str, t: str):
+        # if not s:
+        #     return False
+
         return sorted(s) == sorted(t)
 
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
@@ -10,38 +13,33 @@ class Solution:
         checked = []
         result = []
 
-        while i < len(strs) - 1:
-
+        for i in range(len(strs)):
             sublists = []
-            if not strs[i]:
-                sublists.append(strs[i])
-                i += 1
+
+            if strs[i] in checked:
                 continue
 
+            sublists.append(strs[i])
 
-            if strs[i] not in checked:
-                sublists.append(strs[i])
-
-            j = i + 1
-            while j < len(strs):
-                if self.isAnagrams(strs[i], strs[j]) and (strs[i] not in checked):
-                    checked.append(strs[j])
+            for j in range(i+1, len(strs)):
+                if self.isAnagrams(strs[i], strs[j]):
                     sublists.append(strs[j])
-                j += 1
-            i += 1
+                    checked.append(strs[j])
 
-            if sublists:
-                result.append(sublists)
-
-        if strs[i] not in checked:
-            sublists = [strs[i]]
             result.append(sublists)
 
         return result
 
 
-strs = ["", "", ""]
+# strs = ["act","pots","tops","cat","stop","hat"]
+
+# strs = ["", "", ""]
+
+
+strs = ["", ""]
 
 sol = Solution()
+
+# print(sol.isAnagrams("", ""))
 
 print(sol.groupAnagrams(strs))
