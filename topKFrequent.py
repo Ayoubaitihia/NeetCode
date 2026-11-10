@@ -12,12 +12,16 @@ class Solution:
 
         result = []
 
-        for h in hashMap:
+        sor_hashmap = dict(sorted(hashMap.items(), key=lambda item: item[1]))
 
-            if hashMap[h] >= k:
-                result.append(h)
+        print(sor_hashmap)
 
-        return result
+        # for h in hashMap:
+
+        #     if hashMap[h] >= k:
+        #         result.append(h)
+
+        # return result
 
 
 print(result)
