@@ -24,7 +24,7 @@ class Solution:
 
         return result
 
-    def isValidSudoku(self, board: list[list[str]]) -> bool:
+    def isValid(self, board: list[list[str]]) -> bool:
 
         for lst in board:
             if self.isDuplicated(self.remove_points(lst)):
@@ -32,13 +32,17 @@ class Solution:
 
         inverted = self.inverseMatrix(board)
 
-        print(inverted)
-
         for lst in inverted:
             if self.isDuplicated(self.remove_points(lst)):
                 return False
 
         return True
+
+
+    def isValidSudoku(self, board: list[list[str]]) -> bool:
+
+        return self.isValid(board)
+            
 
 
 
