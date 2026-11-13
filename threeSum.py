@@ -39,19 +39,20 @@ class Solution:
                     triplet.append(nums[left])
 
                     checked.append(k)
-                    checked.append(right)
-                    checked.append(left)
+                    # checked.append(right)
+                    # checked.append(left)
                     break
 
             print("Checked:", checked)
             print("Triplet:", triplet)
 
             if triplet:
+                triplet.sort()
                 result.append(triplet)
 
-        return result
+        return [list(x) for x in set(tuple(x) for x in result)]
 
 
 sol = Solution()
 
-print(sol.threeSum([-1, 0, 1, 2, -1, -4]))
+print(sol.threeSum([-1,0,1,2,-1,-4]))
