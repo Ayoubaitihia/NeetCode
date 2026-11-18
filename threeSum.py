@@ -2,55 +2,34 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
 
-        checked = []
+        result = []
 
         nums.sort()
 
-        print("Nums:", nums)
+        for i, num in enumerate(nums):
 
-        result = []
-
-        for k, n in enumerate(nums):
-
-            triplet = []
-
-            print("k:", k)
-
-            if k in checked:
-                continue
-
-            left = k + 1
+            left = i + 1
             right = len(nums) - 1
 
-            while right > left:
+            while left < right:
 
-                if right in checked:
-                    right -= 1
-                if left in checked:
+                if num == nums[left] == nums[right]:
                     left += 1
+                    continue
 
-                if n + nums[right] + nums[left] > 0:
+                sum = num + nums[left] + nums[right]
+
+                if sum > 0:
                     right -= 1
-                elif n + nums[right] + nums[left] < 0:
+                elif sum < 0:
                     left += 1
                 else:
-                    triplet.append(n)
-                    triplet.append(nums[right])
-                    triplet.append(nums[left])
+                    result.append([num, nums[left], nums[right]])
+                    left += 1
+                    right -= 1
 
-                    checked.append(k)
-                    # checked.append(right)
-                    # checked.append(left)
-                    break
+        return result
 
-            print("Checked:", checked)
-            print("Triplet:", triplet)
-
-            if triplet:
-                triplet.sort()
-                result.append(triplet)
-
-        return [list(x) for x in set(tuple(x) for x in result)]
 
 
 sol = Solution()
