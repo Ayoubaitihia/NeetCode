@@ -17,7 +17,7 @@ class Solution:
             if hashMap[s[right]] > max_freq:
                 max_freq = hashMap[s[right]]
 
-            l = right - left + 1 
+            l = right - left + 1
 
         return hashMap
 
