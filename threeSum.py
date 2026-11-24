@@ -2,36 +2,45 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
 
-        result = []
-
         nums.sort()
 
-        for i, num in enumerate(nums):
+        cache = set()
 
-            left = i + 1
+        result = []
+
+        for k, fixed in enumerate(nums):
+
+            tripllet = []
+
+            left = k + 1
             right = len(nums) - 1
 
             while left < right:
 
-                if num == nums[left] == nums[right]:
-                    left += 1
-                    continue
-
-                sum = num + nums[left] + nums[right]
+                sum = fixed + nums[left] + nums[right]
 
                 if sum > 0:
                     right -= 1
                 elif sum < 0:
                     left += 1
                 else:
-                    result.append([num, nums[left], nums[right]])
-                    left += 1
+                    tripllet.append(fixed)
+                    tripllet.append(nums[right])
+                    tripllet.append(nums[left])
+
+                    cache.add(tuple(tripllet))
                     right -= 1
+                    left += 1
+
+                tripllet = []
+
+        for item in cache:
+            result.append(list(item))
 
         return result
 
 
-
 sol = Solution()
 
-print(sol.threeSum([-1,0,1,2,-1,-4]))
+print(sol.threeSum([]))
+
